@@ -1,3 +1,3 @@
 # Car-crud
 
-Typescrit API for cars.
+Typescript car REST API
