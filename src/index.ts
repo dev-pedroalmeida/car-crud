@@ -1,10 +1,12 @@
 import 'dotenv/config'
 
-import express, { type Express, type Request, type Response  } from "express";
+import express, { type Express, type Request, type Response } from "express";
 import mountRoutes from './routes/index.ts';
 import { CreateCarTable } from './data/CreateCarTable.ts';
 
 const app: Express = express()
+
+app.use(express.json())
 
 app.get('/', (req: Request, res: Response) => {
   res.send("Hello world!")
@@ -12,7 +14,7 @@ app.get('/', (req: Request, res: Response) => {
 
 mountRoutes(app)
 
-CreateCarTable()
+await CreateCarTable()
 
 app.listen(`${process.env.PORT}`, () => {
   console.log(`App listening on port ${process.env.PORT}`)

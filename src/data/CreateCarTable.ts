@@ -12,7 +12,7 @@ export async function CreateCarTable() {
   `
   try {
     await db.query(queryText, [])
-    console.log("User table created!")
+    console.log("Car table created!")
   } catch (err) {
     console.log(err)
   }
