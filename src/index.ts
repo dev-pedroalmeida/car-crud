@@ -3,6 +3,7 @@ import 'dotenv/config'
 import express, { type Express, type Request, type Response } from "express";
 import mountRoutes from './routes/index.ts';
 import { CreateCarTable } from './data/CreateCarTable.ts';
+import { errorHandler } from './middleware/errorHandler.ts';
 
 const app: Express = express()
 
@@ -13,6 +14,8 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 mountRoutes(app)
+
+app.use(errorHandler)
 
 await CreateCarTable()
 
